@@ -1,0 +1,41 @@
+<html>
+<head>
+<title>Flot</title>
+<script type="text/javascript" src="../flot/jquery.js">
+</script>
+<script type="text/javascript" src="../flot/jquery.flot.js">
+</script>
+<script type"text/javascript" src="js/lib/underscore.js">
+</script>
+<script type"text/javascript" src="js/lib/backbone.js">
+</script>
+<script type"text/javascript" src="js/lib/backbone-localstorage.js">
+</script>
+<script type"text/javascript" src="backbonechartapp.js">
+</script>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<div id="dashboard-container">
+  <div id="dasboard-metadata-container">
+    <h1>Adoption Dashboard</h1>
+  </div>
+  <div id="dashboard-data-container">
+  	<div id="column1" class="column">
+  	  <div id="component11" class="component"></div>
+  	  <div id="component12" class="component"></div>
+  	  <div id="component13" class="component"></div>
+  	</div>
+  	<div id="column2" class="column">
+  	  <div id="component21" class="component"></div>
+  	  <div id="component22" class="component"></div>
+  	  <div id="component23" class="component"></div>
+  	</div>
+  	<div id="column3" class="column">
+  	  <div id="component31" class="component"></div>
+  	  <div id="component32" class="component"></div>
+  	  <div id="component33" class="component"></div>
+  	</div>
+  </div>
+</div>
+</html>

@@ -1,0 +1,31 @@
+#dashboard-container {
+    position:absolute;
+
+}
+
+#column1 {
+
+}
+
+#column2 {
+    margin-left: 400px;
+}
+
+#column3 {
+    margin-left: 800px;
+}
+
+.column {
+    overflow:hidden;
+    position: absolute;
+    width: 300px;
+    float:left;
+    margin-left: 10px;
+    border: solid 2px black;
+}
+
+.component {
+    height: 200px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}

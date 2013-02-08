@@ -1,0 +1,84 @@
+$(function() {
+    
+    var DashboardComponentModel = Backbone.Model.extend({
+	defaults: function() {
+	    return {
+		metadata: { yaxis: { max: 3 }, label: 'Foo' },
+		data: [ [[0, 0], [1, 2]], [[1,1], [2,2]] ]
+	    }
+	},
+	initialize: function() {
+	    if(!this.get("data")) {
+		this.set({ "data": this.defaults().data });
+	    }
+	    if(!this.get("metadata")) {
+		this.set({ "metadata": this.defaults().metadata });
+	    }
+	}
+    });
+
+    var Dashboard = Backbone.Collection.extend({
+	model: DashboardComponentModel
+    });
+
+    var myDashboard = new Dashboard;
+    myDashboard.add([
+    	new DashboardComponentModel({data: [ [[0, 0], [1, 2]], [[1,1], [2,2]] ]}),
+    	new DashboardComponentModel({data: [ [[0, 0], [1, 2]], [[1,1], [2,2]] ]}),
+    	new DashboardComponentModel({data: [ [[1, 0], [1, 2]], [[1,1], [2,2]] ]}),
+    	new DashboardComponentModel({data: [ [[0, 0], [1, 1]], [[2,1], [2,2]] ]}),
+    	new DashboardComponentModel({data: [ [[0, 0], [1, 2]], [[1,1], [2,2]] ]}),
+    	new DashboardComponentModel({data: [ [[0, 0], [3, 2]], [[3,1], [2,2]] ]}),
+    	new DashboardComponentModel({data: [ [[0, 0], [1, 2]], [[1,1], [2,2]] ]}),
+    	new DashboardComponentModel({metadata: { yaxis: { max: 3 } }}),
+    	new DashboardComponentModel({metadata: { yaxis: { max: 5 } }})
+    ]);
+
+    window.myDashboard = myDashboard;
+
+    var DashboardComponentView = Backbone.View.extend({
+	render: function() {
+	    $.plot(this.tagName, this.model.get("data"), this.model.get("metadata"));
+	},
+	events: {
+	    
+	},
+	initialize: function() {
+	    this.listenTo(this.model, "change", this.render);
+	}
+    });
+
+    var AppView = Backbone.View.extend({
+    	el: $("#todoapp"),
+    	render: function() {
+    	    console.log("Helllo world");
+    	}
+    });
+
+    var App = new AppView;
+    var dashboardComponent1 = new DashboardComponentView({tagName: $("#component11"), model: myDashboard.at(0)});
+    var dashboardComponent2 = new DashboardComponentView({tagName: $("#component12"), model: myDashboard.at(1)});
+    var dashboardComponent3 = new DashboardComponentView({tagName: $("#component13"), model: myDashboard.at(2)});
+
+    var dashboardComponent4 = new DashboardComponentView({tagName: $("#component21"), model: myDashboard.at(3)});
+    var dashboardComponent5 = new DashboardComponentView({tagName: $("#component22"), model: myDashboard.at(4)});
+    var dashboardComponent6 = new DashboardComponentView({tagName: $("#component23"), model: myDashboard.at(5)});
+
+    var dashboardComponent7 = new DashboardComponentView({tagName: $("#component31"), model: myDashboard.at(6)});
+    var dashboardComponent8 = new DashboardComponentView({tagName: $("#component32"), model: myDashboard.at(7)});
+    var dashboardComponent9 = new DashboardComponentView({tagName: $("#component33"), model: myDashboard.at(8)});
+
+    window.dashboardComponent1 = dashboardComponent1;
+    window.dashboardComponent2 = dashboardComponent2;
+
+    dashboardComponent1.render();
+    dashboardComponent2.render();
+    dashboardComponent3.render();
+    dashboardComponent4.render();
+    dashboardComponent5.render();
+    dashboardComponent6.render();
+    dashboardComponent7.render();
+    dashboardComponent8.render();
+    dashboardComponent9.render();
+});
+

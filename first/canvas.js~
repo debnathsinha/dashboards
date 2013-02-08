@@ -1,0 +1,29 @@
+var canvas;
+var ctx;
+var j;
+var x=0;
+var y=105;
+var WIDTH=180;
+var HEIGHT=105;
+var temps = [80,95,85,78,92,95,79];
+
+function drawAxes() {
+    
+    ctx.strokeStyle = "black";
+
+    /*y axis along left edge of canvas*/
+    ctx.beginPath();
+    ctx.moveTo(0,0);
+    ctx.lineTo(0,105);
+    ctx.lineTo(180,105);
+    ctx.stroke();
+
+    /*x axis along bottom edge*/
+    ctx.moveTo(0,105);
+    ctx.lineTo(180,105);
+}
+
+function clear() {
+    ctx.clearRect(0,0,WIDTH, HEIGHT);
+}
+

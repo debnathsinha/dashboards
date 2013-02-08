@@ -1,0 +1,7 @@
+var DashboardRouter = Backbone.Router.extend({
+
+    routes: {
+	"about" : "showAbout",
+	"dashboard/:id" : "getDashboard",
+	"component/:id" : "getDashboardComponent"
+    }
